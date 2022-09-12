@@ -1,0 +1,101 @@
+Udemy - Build an app with ASPNET Core and Angular from scratch 2021-11
+
+01 - Introduction
+
+dotnet new sln (insite DatingApp and it will create a sln file with the name of the folder)
+dotnet new webapi -o API (insite DatingApp and it will create API project with .csproj file)
+dotnet sln add API (Project `API\API.csproj` added to the solution.)
+
+extentions added (c#, Material Theme Icon etc)
+
+dotnet dev-certs https --trust 
+
+Create a folder Entities
+create a class AppUser
+
+Adding packages to the project
+---------------------------------------------------------------------
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+---------------------------------------------------------------------
+
+
+vs code = change private to = _
+this => c# extentions conf = right click off
+
+
+"ConnectionStrings": {            
+    "SqlDbConnection": "Server=.;Database=DatingApp;Trusted_Connection=True;"
+}
+
+Migrations
+---------------------------------------------------------------------
+dotnet ef migrations add InitialCreate -o Data/Migrations
+---------------------------------------------------------------------
+
+
+
+Adding git to the code (DatingApp location)
+---------------------------------------------------------------------
+git status
+
+
+02 - Building a walking skeleton Part One - API
+
+
+03 - Building a walking skeleton Part Two - Angular
+
+
+04 - Authentication basics
+
+
+05 - Client login and register
+
+
+06 - Routing in Angular
+
+
+07 - Error handling
+
+
+08 - Extending the API
+
+
+09 - Building the User Interface
+
+
+10 - Updating resources
+
+
+10 - Updating resources
+
+
+12 - Reactive forms
+
+
+13 - Paging, Sorting and Filtering
+
+
+14 - Adding the Like User feature
+
+
+
+15 - Adding the messaging feature
+
+
+16 - Identity and role management
+
+
+17 - SignalR
+
+
+18 - Unit of work pattern and finishing touches
+
+
+19 - Publishing
+
+
+
+20 - Updating to .Net 6, Angular 12 and Bootstrap 5
