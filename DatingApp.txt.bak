@@ -73,8 +73,6 @@ npm install ngx-bootstrap@latest --legacy-peer-deps
 
 add 'BrowserAnimationModule' to app.module.ts
 
-npm install font-awesome
-
 
 04 - Authentication basics
 
