@@ -42,7 +42,7 @@ Migrations
 ---------------------------------------------------------------------
 dotnet ef migrations add InitialCreate -o Data/Migrations
 ---------------------------------------------------------------------
-
+dotnet ef database update
 
 
 Adding git to the code (DatingApp location)
@@ -64,6 +64,28 @@ Angular Language Service => Angular:Enable-strict-mode-prompt = right click off
 for Angular - extentions installation
 Angular Language Service
 
+create AccountController and BaseApiController and 
+[ApiController]
+[Route("api/[controller]")]
+and 
+ControllerBase
+implements
+
+in account controller implements 
+[HttpPost("register")]
+public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto) {}
+
+[HttpPost("login")]
+public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
+
+create folder DTOs under Entities. create 2 Dtos LoginDto and RegisterDto
+
+for clean database
+
+dotnet ef database drop
+dotnet ef database update
+
+
 
 ng add ngx-bootstrap
 npm install ngx-bootstrap --save
@@ -73,8 +95,40 @@ npm install ngx-bootstrap@latest --legacy-peer-deps
 
 add 'BrowserAnimationModule' to app.module.ts
 
+npm install font-awesome
+
 
 04 - Authentication basics
+
+
+Update Entities/AppUser = add PasswordHash and PasswordSalt
+
+new migrations add = dotnet ef migrations add PasswordHashSaltAdded
+dotnet ef database update
+
+Create folder Interfaces and Services
+inside Interfaces create ITokenService.cs file and inside this create
+	string CreateToken(AppUser user);
+	
+inside Services create TokenService.cs file and implement CreateToken 
+
+create UserDto
+
+inside AccountController inject ITokenService and initialize from parameter
+
+add package
+Microsoft.AspNetCore.Authentication.JwtBearer by Microsoft
+
+dotnet add Microsoft.AspNetCore.Authentication.JwtBearer (in commandLine)
+
+create folder Extensions and create two cs file
+ApplicationServiceExtensions.cs (Static class because no need to create instance)
+IdentityServiceExtensions.cs (Static class because no need to create instance)
+
+stage all section by clicking +
+write commets = "End of Section" 4 and commit
+
+
 
 
 05 - Client login and register
