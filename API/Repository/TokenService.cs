@@ -2,9 +2,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using API.Entities;
-using API.Interfaces;
+using API.Repository.IRepository;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.Extensions.Configuration;
 
 namespace API.Services
 {
@@ -12,7 +11,7 @@ namespace API.Services
     {
         private readonly SymmetricSecurityKey _key;
         public TokenService(IConfiguration config)
-        {
+        { 
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
         }
 

@@ -1,11 +1,4 @@
-using System.Text;
-using API.Data;
 using API.Extensions;
-using API.Interfaces;
-using API.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,15 +9,21 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Start of Application Service Extensions
+
 // builder.Services.AddScoped<ITokenService, TokenService>();
 // builder.Services.AddDbContext<DataContext>(options =>
 // {
 //     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlDbConnection"));
 // });
 
+// End of Application Service Extensions
+
 builder.Services.AddApplicationServices(builder.Configuration);
 
 builder.Services.AddIdentityServices(builder.Configuration);
+
+// Start of Identity Service Extensions
 
 // builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //                 .AddJwtBearer(options =>
@@ -38,8 +37,29 @@ builder.Services.AddIdentityServices(builder.Configuration);
 //                     };
 //                 });
 
+// End of Identity Service Extensions
+
 
 var app = builder.Build();
+
+// Data Input 
+
+// using var scope = app.Services.CreateScope();
+// var services = scope.ServiceProvider;
+
+// try
+// {
+//     var context = services.GetRequiredService<DataContext>();
+//     await context.Database.MigrateAsync();
+//     await Seed.SeedUsers(context);
+// }
+// catch (Exception ex)
+// {
+//     var logger = services.GetRequiredService<ILogger<Program>>();
+//     logger.LogError(ex, "An error occurred during migration");
+// }
+
+// End of Data Input 
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

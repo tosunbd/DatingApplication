@@ -126,12 +126,17 @@ ApplicationServiceExtensions.cs (Static class because no need to create instance
 IdentityServiceExtensions.cs (Static class because no need to create instance)
 
 stage all section by clicking +
-write commets = "End of Section" 4 and commit
+write commets = "End of Section 4" and commit
 push to git 
 
-
+-------------------- End of Section 4----------------------------------------------
 
 05 - Client login and register
+
+ng g --help
+cd src/app
+ng g c nav --skip-tests=true
+
 
 
 06 - Routing in Angular
@@ -141,6 +146,33 @@ push to git
 
 
 08 - Extending the API
+
+update AppUser and create Photo.cs by right clicking and use properties
+dotnet ef migrations Add ExtendedUserEntity
+dotnet ef migrations remove
+
+fully define entity relationship and then
+dotnet ef migrations Add ExtendedUserEntity
+dotnet ef database update
+dotnet ef database drop
+
+Convert Services folder = Repository
+Convert Interfaces folder = IRepository
+
+
+Repository Pattern = MARTIN FOWLER (PATTERS OF ENTERPRISE ARCHITECHTURE)
+
+Implementation of IUserRepository and UserRepository(implementation of IUserRepository)
+in ApplicationServiceExtensions.cs add (not in Program.cs)
+(Builder.Services.AddScoped<IUserRepository, UserRepository>();)
+services.AddScoped<IUserRepository, UserRepository>();
+
+remove DataContext from UserController and implement IUserRepository userRepository
+
+"premature optimization is the root of all evil"
+
+
+
 
 
 09 - Building the User Interface

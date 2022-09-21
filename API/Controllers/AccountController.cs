@@ -3,7 +3,7 @@ using System.Text;
 using API.Data;
 using API.Entities;
 using API.Entities.DTOs;
-using API.Interfaces;
+using API.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
